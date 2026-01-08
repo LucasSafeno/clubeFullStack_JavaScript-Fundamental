@@ -1,26 +1,11 @@
-// const user = {
-//   info() {
-//     return 'My name is ' + this.firstName;
-//   },
-// };
-
-// bind ( ligação ) - sempre retorna uma função
-// const person = {
-//   firstName: 'Lucas',
-// };
-
-// const userInfo = user.info.bind(person);
-
-// console.log(userInfo());
-
-function info(age) {
-  return 'My name is ' + this.firstName + ' and my age is ' + age;
-}
-
 const person = {
   firstName: 'Lucas',
 };
 
-const userInfo = info.bind(person);
+var user = {
+  info(age) {
+    console.log('my name is ' + this.firstName + ' and my age is ' + age);
+  },
+};
 
-console.log(userInfo(38));
+const userInfo = user.info.call(person, 31);
